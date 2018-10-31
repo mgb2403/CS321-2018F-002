@@ -1,4 +1,5 @@
-#### CS321-2018F-002
+### World Creation CS321-2018F-002
+--------------------
 ##### Matthew Burnard
 ##### Chris McCready
 ##### David Furness
