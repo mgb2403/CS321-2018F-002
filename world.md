@@ -25,12 +25,12 @@ If you are unsure about how to do this please read the GenericRoomFormat.txt fil
  FOR USERS
 --------------------
 
-###QUESTS AND OBJECTIVES
+### QUESTS AND OBJECTIVES
 The game will soon have quests. Upon discovering a quest, you will be shown
 the relevant current objectives. NOTE: you will only be shown current objectives (see example diagram below).
 When all objectives of a quest have been completed, the quest is completed.
 
-###ROOMS
+### ROOMS
 Every room in the game is classified as inside or outside in the csv file used to construct the map.
 By using the look command, the player is able to see whether the current room is inside or outside. 
 
@@ -41,7 +41,7 @@ However, players are allowed to drop items without limitation.
 FOR DEVELOPERS
 --------------------
 
-###WORLD FILE
+### WORLD FILE
 
 This is the .csv file you use when starting the server via
 
@@ -88,7 +88,7 @@ So the first room is 1, the next room is 2, etc.
 Your csv files can be almost as large as you want. George_Mason.csv contains 171 rooms, which is frankly way too many rooms,
 but it doesn't noticeably slow down the build or runServer scripts.
 
-###GAMECORE
+### GAMECORE
 
 The item spawnrate can be modified by changing the min and max variables at the top of GameCore.java.
 
@@ -97,11 +97,11 @@ If both variables are large numbers (around 5000) then the spawnrate will be fai
 
 As the names would imply, the maximum spawnrate can NOT be smaller than the minimum spawn rate, although it can be equal to it if a static spawnrate is desired.
 
-###ROOM.JAVA
+### ROOM.JAVA
 
 Player drop limitation and NPC drop limitation were implemented by created seperate drop functions for each. The drop limit can be changed by editing the methods here.
 
-###MAP.JAVA
+### MAP.JAVA
 
 Map.java generates the world by reading through a provided csv file using a scanner.
 We use a csv file to easily read in values using the comma character as a delimiter.
@@ -111,7 +111,7 @@ This prevents potential issues with having a description split into multiple tok
 IMPORTANT: There must be no newline characters at the very beginning or the very end of the file.
 See the file "GenericRoomFormat.txt"
 
-###QUESTS
+### QUESTS
 
 A quest holds an array of the current objectives. The array will be updated to
 contain the next concurrent objectives when the current objectives have all been completed.
@@ -137,7 +137,7 @@ contain the next concurrent objectives when the current objectives have all been
 * 6 = [Write your Mason email address down]
 * 7 = [Give the piece of paper to Professor Russell]
 
-###OBJECTIVES
+### OBJECTIVES
 
 An objective acts as a node in a tree, storing references to the NEXT concurrent objectives
 There will be different types objectives that extend the Objective class.
