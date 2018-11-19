@@ -41,3 +41,5 @@ MAP,,Displays an ASCII map of the world around you
 TOPTEN,,Display Top Ten Players from Rock Paper Scissors Leaderboard.
 RANK,,Display your current RPS Leaderboard Rank.
 OBJECTIVES,,Displays the Player's active Quest Objectives
+QUESTS,,Check available quests at local NPC
+TAKEQUEST, QUESTNUMBER, Take quest from local NPC

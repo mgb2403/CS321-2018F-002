@@ -1,4 +1,3 @@
-
 import java.io.DataOutputStream;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -23,6 +22,7 @@ public class Player {
   private PrintWriter replyWriter = null;
   private DataOutputStream outputWriter = null;
   private Money money;
+  private int numOfPurchases;
   // the player's list of all his/her Quests
 	private ArrayList<Quest> questBook = new ArrayList<Quest>();
   private String inTradeWithName = null;
@@ -39,16 +39,8 @@ public class Player {
     this.name = name;
     this.currentInventory = new LinkedList<>();
     this.money = new Money(20);
-    try
-		{
-			// add a tutorial Quest to the player
-			questBook.add(new Quest(this, new File("go_to_dk_hall.quest")));
-			questBook.get(0).printQuest();
-		}
-		catch (FileNotFoundException fnfe)
-		{
-			System.out.println("Couldn't add quest: file containing quest information not found");
-		}
+    this.numOfPurchases = 0;
+		
     /* START 405_ignore*/
     this.ignoreList = new ArrayList<String>();
     this.ignoredByList = new ArrayList<String>();
@@ -453,15 +445,39 @@ public class Player {
     }
     return false;
   }
-  
-  public boolean searchIgnoreList(String name) {
+
+    public boolean addQuest(Quest quest){
+	if(quest == null)
+		return false;
+        questBook.add(quest);
+        return true;
+    }
+
+    public boolean hasQuest(Quest quest){
+	for(int i = 0; i < questBook.size(); i++){
+		if(questBook.get(i).getQuestName().equals(quest.getQuestName()))
+			return true;
+	}
+	return false;
+    }
+
+    public int getNumPurchases(){
+	return numOfPurchases;
+    }
+
+    public void incrementPurchaseTotal(){
+    	numOfPurchases++;
+    }
+
+   public boolean searchIgnoreList(String name) {
     int listSize = ignoreList.size();
     for( int x = 0; x < listSize; x++){
       if( name.equalsIgnoreCase(ignoreList.get(x)))
         return true;
     }
     return false;
-  }
+   }
+
   /* END 405_ignore */
   //407
   public String showIgnoreList()
